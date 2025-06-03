@@ -6,21 +6,25 @@
 
 <ion-content class="ion-padding">
   <form #loginForm="ngForm">
+
     <ion-item>
       <ion-label position="floating">Usuario</ion-label>
       <ion-input
         [(ngModel)]="username"
         name="username"
+        type="text"
+        inputmode="text"
         required
         minlength="3"
         maxlength="8"
         pattern="[a-zA-Z0-9]+"
-        type="text"
-        inputmode="text"
       ></ion-input>
     </ion-item>
+
     <ion-text color="danger" *ngIf="username && (username.length < 3 || username.length > 8)">
-      <p class="ion-padding-start">El usuario debe tener entre 3 y 8 caracteres alfanuméricos.</p>
+      <p class="ion-padding-start">
+        El usuario debe tener entre 3 y 8 caracteres alfanuméricos.
+      </p>
     </ion-text>
 
     <ion-item>
@@ -31,19 +35,31 @@
         type="password"
         inputmode="numeric"
         required
-        maxlength="4"
         minlength="4"
+        maxlength="4"
         pattern="[0-9]*"
       ></ion-input>
     </ion-item>
+
     <ion-text color="danger" *ngIf="password && password.length !== 4">
-      <p class="ion-padding-start">La contraseña debe ser de 4 dígitos numéricos.</p>
+      <p class="ion-padding-start">
+        La contraseña debe ser de 4 dígitos numéricos.
+      </p>
     </ion-text>
 
-    <ion-button expand="block" [disabled]="!loginForm.form.valid" (click)="login()">Ingresar</ion-button>
+    <ion-button
+      expand="block"
+      [disabled]="!loginForm.form.valid"
+      (click)="login()"
+    >
+      Ingresar
+    </ion-button>
+
   </form>
 
   <ion-text color="medium">
-    <p class="ion-text-center">¿No tienes cuenta? <a href="login">Regístrate</a></p>
+    <p class="ion-text-center">
+      ¿No tienes cuenta? <a href="login">Regístrate</a>
+    </p>
   </ion-text>
 </ion-content>

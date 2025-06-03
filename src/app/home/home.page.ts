@@ -36,6 +36,8 @@ export class HomePage implements AfterViewInit {
     }
   }
 
+//convierte la fecha a DD/MM/YYYY
+
   formatearFecha(fecha: string): string {
     if (!fecha) return '';
     const d = new Date(fecha);
@@ -45,6 +47,8 @@ export class HomePage implements AfterViewInit {
     return `${day}/${month}/${year}`;
   }
 
+  //Funcion para el pop up con los datos ingresados
+  
   async mostrarDatos() {
    const fechaFormateada = this.formatearFecha(this.fechaNacimiento);
     const alert = await this.alertCtrl.create({
@@ -59,6 +63,7 @@ export class HomePage implements AfterViewInit {
   await alert.present();
 }
 
+//Limpia los datos ingresados
 
   async limpiarCampos() {
     const ids = ['#nombreInput', '#apellidoInput'];

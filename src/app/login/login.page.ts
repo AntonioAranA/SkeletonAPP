@@ -13,6 +13,8 @@ export class LoginPage {
 
   constructor(private router: Router) {}
 
+//Validaciones
+
   login() {
     const isValidUser = /^[a-zA-Z0-9]{3,8}$/.test(this.username);
     const isValidPass = /^\d{4}$/.test(this.password);
